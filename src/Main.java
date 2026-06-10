@@ -3,12 +3,19 @@ import java.util.Scanner;
 public class Main {
     static void main(String[] args) {
         var scanner = new Scanner(System.in);
+        System.out.println("Quantos anos você tem?");
 
-        System.out.println("Quanto é 2 + 2? ");
+        var age = scanner.nextInt();
+        var isEmancipated = false; // valor padrão
 
-        var result = scanner.nextInt();
-        var isWrong = result != 4;
+        // Só pergunta sobre emancipação se a idade for entre 16 e 18
+        if (age <= 18 && age >= 16) {
+            System.out.println("Você é emancipado? (true/false)");
+            isEmancipated = scanner.nextBoolean();
+        }
 
-        System.out.printf("O resultado é 4, você %s!", isWrong ? "Não acertou" : "acertou");
+        var canDiver = age >= 18 || (isEmancipated && age >= 16);
+
+        System.out.printf("Você %s!", canDiver ? "pode dirigir" : "não pode dirigir");
     }
 }
