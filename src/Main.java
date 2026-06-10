@@ -2,15 +2,13 @@ import java.util.Scanner;
 
 public class Main {
     static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        var scanner = new Scanner(System.in);
 
-        System.out.println("Olá, informe o seu nome: ");
-        String name = scanner.next();
+        System.out.println("Quanto é 2 + 2? ");
 
-        System.out.println("Olá, informe a sua idade: ");
-        int age = scanner.nextInt();
+        var result = scanner.nextInt();
+        var isWrong = result != 4;
 
-//        System.out.println("Olá, " + name + "sua idade é " + age);
-        System.out.printf("Olá, %s sua idade é %s anos", name, age);
+        System.out.printf("O resultado é 4, você %s!", isWrong ? "Não acertou" : "acertou");
     }
 }
