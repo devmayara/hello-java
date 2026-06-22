@@ -64,7 +64,28 @@ public class Main {
     }
 
     static void exercicio3(Scanner scanner) {
-        // a ser implementado
+        System.out.print("Digite o primeiro numero: ");
+        var num1 = scanner.nextInt();
+        System.out.print("Digite o segundo numero (maior que o primeiro): ");
+        var num2 = scanner.nextInt();
+
+        if (num2 <= num1) {
+            System.out.println("O segundo numero deve ser maior que o primeiro!");
+            return;
+        }
+
+        System.out.print("Par ou impar? ");
+        var tipo = scanner.next();
+
+        System.out.println("Numeros " + tipo + "es em ordem decrescente:");
+        for (var i = num2; i >= num1; i--) {
+            var ehPar = i % 2 == 0;
+            if (tipo.equalsIgnoreCase("par") && ehPar) {
+                System.out.println(i);
+            } else if (tipo.equalsIgnoreCase("impar") && !ehPar) {
+                System.out.println(i);
+            }
+        }
     }
 
     static void exercicio4(Scanner scanner) {
