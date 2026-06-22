@@ -38,7 +38,29 @@ public class Main {
     }
 
     static void exercicio2(Scanner scanner) {
-        // a ser implementado
+        System.out.print("Digite sua altura (m): ");
+        var altura = scanner.nextDouble();
+        System.out.print("Digite seu peso (kg): ");
+        var peso = scanner.nextDouble();
+
+        var imc = peso / (altura * altura);
+        System.out.printf("Seu IMC: %.2f\n", imc);
+
+        String classificacao;
+        if (imc <= 18.5) {
+            classificacao = "Abaixo do peso";
+        } else if (imc <= 24.9) {
+            classificacao = "Peso ideal";
+        } else if (imc <= 29.9) {
+            classificacao = "Levemente acima do peso";
+        } else if (imc <= 34.9) {
+            classificacao = "Obesidade Grau I";
+        } else if (imc <= 39.9) {
+            classificacao = "Obesidade Grau II (Severa)";
+        } else {
+            classificacao = "Obesidade III (Morbida)";
+        }
+        System.out.println("Classificacao: " + classificacao);
     }
 
     static void exercicio3(Scanner scanner) {
