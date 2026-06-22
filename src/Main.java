@@ -89,6 +89,21 @@ public class Main {
     }
 
     static void exercicio4(Scanner scanner) {
-        // a ser implementado
+        System.out.print("Digite o numero inicial: ");
+        var inicial = scanner.nextInt();
+
+        System.out.println("Digite numeros (para quando resto da divisao pelo inicial for diferente de 0):");
+        while (true) {
+            var num = scanner.nextInt();
+
+            if (num < inicial) {
+                continue;
+            }
+
+            if (num % inicial != 0) {
+                System.out.println("Resto diferente de 0! Encerrando.");
+                break;
+            }
+        }
     }
 }
