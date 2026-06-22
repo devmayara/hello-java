@@ -1,21 +1,51 @@
 import java.util.Scanner;
 
 public class Main {
-    static void main(String[] args) {
+    public static void main(String[] args) {
         var scanner = new Scanner(System.in);
-        System.out.println("Quantos anos você tem?");
 
-        var age = scanner.nextInt();
-        var isEmancipated = false; // valor padrão
+        while (true) {
+            System.out.println("\n=== MENU ===");
+            System.out.println("1 - Tabuada");
+            System.out.println("2 - Calculo IMC");
+            System.out.println("3 - Pares ou Impares");
+            System.out.println("4 - Divisivel pelo primeiro");
+            System.out.println("0 - Sair");
+            System.out.print("Escolha: ");
 
-        // Só pergunta sobre emancipação se a idade for entre 16 e 18
-        if (age <= 18 && age >= 16) {
-            System.out.println("Você é emancipado? (true/false)");
-            isEmancipated = scanner.nextBoolean();
+            var opcao = scanner.nextInt();
+
+            switch (opcao) {
+                case 1 -> exercicio1(scanner);
+                case 2 -> exercicio2(scanner);
+                case 3 -> exercicio3(scanner);
+                case 4 -> exercicio4(scanner);
+                case 0 -> {
+                    System.out.println("Saindo...");
+                    return;
+                }
+                default -> System.out.println("Opcao invalida!");
+            }
         }
+    }
 
-        var canDiver = age >= 18 || (isEmancipated && age >= 16);
+    static void exercicio1(Scanner scanner) {
+        System.out.print("Digite um numero: ");
+        var num = scanner.nextInt();
+        for (var i = 1; i <= 10; i++) {
+            System.out.printf("%d x %d = %d\n", num, i, num * i);
+        }
+    }
 
-        System.out.printf("Você %s!", canDiver ? "pode dirigir" : "não pode dirigir");
+    static void exercicio2(Scanner scanner) {
+        // a ser implementado
+    }
+
+    static void exercicio3(Scanner scanner) {
+        // a ser implementado
+    }
+
+    static void exercicio4(Scanner scanner) {
+        // a ser implementado
     }
 }
