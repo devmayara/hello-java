@@ -76,7 +76,45 @@ public class Main {
     }
 
     static void exercicio2(Scanner scanner) {
-        System.out.println("Em construcao...");
+        var carro = new Carro();
+
+        while (true) {
+            System.out.println("\n=== CARRO ===");
+            System.out.printf("Estado: %s | Velocidade: %dkm | Marcha: %d\n",
+                carro.isLigado() ? "Ligado" : "Desligado",
+                carro.verificarVelocidade(),
+                carro.getMarcha());
+            System.out.println("1 - Ligar carro");
+            System.out.println("2 - Desligar carro");
+            System.out.println("3 - Acelerar");
+            System.out.println("4 - Diminuir velocidade");
+            System.out.println("5 - Virar para esquerda");
+            System.out.println("6 - Virar para direita");
+            System.out.println("7 - Verificar velocidade");
+            System.out.println("8 - Trocar marcha");
+            System.out.println("0 - Voltar");
+            System.out.print("Escolha: ");
+
+            var opcao = scanner.nextInt();
+
+            switch (opcao) {
+                case 1 -> carro.ligar();
+                case 2 -> carro.desligar();
+                case 3 -> carro.acelerar();
+                case 4 -> carro.diminuirVelocidade();
+                case 5 -> carro.virar("esquerda");
+                case 6 -> carro.virar("direita");
+                case 7 -> System.out.printf("Velocidade atual: %dkm\n", carro.verificarVelocidade());
+                case 8 -> {
+                    System.out.print("Digite a marcha desejada (0-6): ");
+                    carro.trocarMarcha(scanner.nextInt());
+                }
+                case 0 -> {
+                    return;
+                }
+                default -> System.out.println("Opcao invalida!");
+            }
+        }
     }
 
     static void exercicio3(Scanner scanner) {
