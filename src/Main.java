@@ -118,6 +118,44 @@ public class Main {
     }
 
     static void exercicio3(Scanner scanner) {
-        System.out.println("Em construcao...");
+        var maquina = new MaquinaBanho();
+
+        while (true) {
+            System.out.println("\n=== MAQUINA DE BANHO ===");
+            System.out.printf("Agua: %dL/30L | Shampoo: %dL/10L | Pet: %s | Maquina: %s\n",
+                maquina.verificarNivelAgua(),
+                maquina.verificarNivelShampoo(),
+                maquina.verificarPet() ? "Sim" : "Nao",
+                maquina.isMaquinaSuja() ? "Suja" : maquina.verificarPet() ? "Ocupada" : "Disponivel");
+            System.out.println("1 - Dar banho no pet");
+            System.out.println("2 - Abastecer com agua");
+            System.out.println("3 - Abastecer com shampoo");
+            System.out.println("4 - Verificar nivel de agua");
+            System.out.println("5 - Verificar nivel de shampoo");
+            System.out.println("6 - Verificar se tem pet no banho");
+            System.out.println("7 - Colocar pet na maquina");
+            System.out.println("8 - Retirar pet da maquina");
+            System.out.println("9 - Limpar maquina");
+            System.out.println("0 - Voltar");
+            System.out.print("Escolha: ");
+
+            var opcao = scanner.nextInt();
+
+            switch (opcao) {
+                case 1 -> maquina.darBanho();
+                case 2 -> maquina.abastecerAgua();
+                case 3 -> maquina.abastecerShampoo();
+                case 4 -> System.out.printf("Nivel de agua: %dL/30L\n", maquina.verificarNivelAgua());
+                case 5 -> System.out.printf("Nivel de shampoo: %dL/10L\n", maquina.verificarNivelShampoo());
+                case 6 -> System.out.println(maquina.verificarPet() ? "Tem pet na maquina." : "Nao tem pet na maquina.");
+                case 7 -> maquina.colocarPet();
+                case 8 -> maquina.retirarPet();
+                case 9 -> maquina.limparMaquina();
+                case 0 -> {
+                    return;
+                }
+                default -> System.out.println("Opcao invalida!");
+            }
+        }
     }
 }
