@@ -1,4 +1,4 @@
-public class Employee {
+public sealed class Employee permits Manager, Salesman {
     private String code;
     private String name;
     private String address;
